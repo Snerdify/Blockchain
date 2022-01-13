@@ -3,11 +3,11 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/uitl/Counters.sol";
 
-contract EmotionalShapes is ERC721{
-    uisng Counters for Counters.Counter;
+contract WildRangers is ERC721{
+    using Counters for Counters.Counter;
     Counters.Counter private _tokenTdCounter;
 
-    constructor() ERC721("EmotionalShapes","ESS"){}
+    constructor() ERC721("WildRangers","ESS"){}
 
     function _baseURI() internal pure override returns(string memory){
         return "https://YOUR_API/api/erc721/";
