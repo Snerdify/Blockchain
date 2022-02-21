@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
 //external functions are functions that are a part of the contract inteface but can be called from other contracts or via transactions
