@@ -49,6 +49,7 @@ contract MultiSig{
     );
 
 
+
 //create an empty array to store the owners of this wallet
     address[] public owners;
     //use mapping to keep track that whether address is 
@@ -58,6 +59,9 @@ contract MultiSig{
 //initialize a variable that keeps track of no. of confiramtions required
 //to confirm a transaction 
     uint public numConfirmationsRequired;
+
+
+
 
     //create a Struct to hold all the state variables needed for the contract
     struct Transaction{
@@ -69,6 +73,8 @@ contract MultiSig{
         uint numConfirmations;  //store the no of confirmations
         
     }
+
+
 
     //mapping
     mapping(uint=>mapping(address=>bool)) public isConfirmed;
@@ -183,12 +189,6 @@ contract MultiSig{
 
 
 
-
-
-
-
-
-
 //owner will have to propose a transaction by calling other'
 //owners- when the owner submits a transaction they will need an
 //address the trasaction is for, the amount of value to transact,
@@ -210,8 +210,6 @@ contract MultiSig{
 //emit the event
         emit SubmitTransaction(msg.sender,txIndex,_to,_value,_data);
     }
-
-
 
 
 
@@ -276,10 +274,6 @@ contract MultiSig{
 
 
 
-
-
-
-
 //if the owner wants to return from the confirmation
     function revokeTransaction(uint _txIndex) public onlyOwner txExists(_txIndex) notExecuted(_txIndex)  {
         Transaction storage transaction = transactions[_txIndex];
@@ -298,12 +292,13 @@ contract MultiSig{
 
 
    
-
+// function to return owners
     function getOwners() public view returns (address[] memory) {
         return owners;
     }
 
 
+//function to get transactions
     function getTransactionCount(uint _txIndex) public view returns(
         address to,
         uint value,
@@ -313,7 +308,6 @@ contract MultiSig{
     
     
     ){
-
         Transaction storage transaction = transactions[_txIndex];
 
         return(
@@ -326,10 +320,18 @@ contract MultiSig{
     }
 
     
-
-
-    
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
