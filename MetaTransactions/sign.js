@@ -4,7 +4,7 @@
 
 let rawData= web3.eth.abi.encodeParameters(
 	['address','bytes'],
-	[tokenAddress,data]);
+	[DaiTokenAddress,data]);
 
 
 //hash the data
